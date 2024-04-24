@@ -9,8 +9,8 @@ rs.initiate({
   _id: 'rs0',
   members: [
 	{ _id: 0, host: '$CONTAINER_1_NAME' },
-	{ _id: 2, host: '$CONTAINER_2_NAME' },
-	{ _id: 3, host: '$CONTAINER_3_NAME' }
+	{ _id: 1, host: '$CONTAINER_2_NAME' },
+	{ _id: 2, host: '$CONTAINER_3_NAME' }
   ]
 });"
 
