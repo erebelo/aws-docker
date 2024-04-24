@@ -120,6 +120,15 @@ $ echo $<ENV_VARIABLE>
 
 # Remove environment variable
 $ unset <ENV_VARIABLE>
+
+# Disk space usage information
+$ df -h
+
+# Real-time information about system resources, such as cpu, memory, and process state (S)
+$ top
+
+# Memory information, such as total memory, used memory, and free memory
+$ free -h
 ```
 
 #### Script (`env.sh`) to set multiple environment variables on Linux:
