@@ -1,0 +1,27 @@
+services:
+  mongo1:
+    container_name: mongo1
+    restart: unless-stopped
+    image: ${IMAGE_NAME}
+    command: ["bash", "-c", "chmod 400 /keyfile && exec mongod --replSet rs0 --bind_ip localhost,mongo1 --keyFile /keyfile --auth"]
+    ports:
+      - "27017:27017"
+    networks:
+      - mongo_cluster
+    volumes:
+      - mongo1_data:/data/db
+      - mongo1_configdb:/data/configdb
+      - ./keyfile:/keyfile
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${ROOT_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${ROOT_PWD}
+
+networks:
+  mongo_cluster:
+    external: true
+
+volumes:
+  mongo1_data:
+    external: true
+  mongo1_configdb:
+    external: true
