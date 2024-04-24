@@ -102,6 +102,8 @@
      rebelodocker/spring-mongodb-demo:springmongodb
      ```
 
+---
+
 ##### `[SECOND APPROACH]`
 
 # Setup for Running Java App without Docker - AWS EC2
