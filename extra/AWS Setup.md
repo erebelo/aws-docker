@@ -28,10 +28,15 @@
 
 4. Create EC2 instance: _EC2 -> Instances -> Launch instances_
 
-5. Create Elastic IPs (used to keep the same EC2 IP when instance is stopped and started):
+5. `[charged]` Create Elastic IPs (used to keep the same EC2 IP when instance is stopped and started):
 
    - _EC2 -> Network & Security -> Elastic IPs -> Allocate Elastic IP address_
    - _EC2 -> Network & Security -> Elastic IPs -> Actions -> Associate Elastic IP address -> Instance_
+
+   To remove a created Elastic IP address, follow these steps:
+
+   - _Actions -> Disassociate Elastic IP address_
+   - _Actions -> Release Elastic IP address_
 
 6. Create Route 53:
 
