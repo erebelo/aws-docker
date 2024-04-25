@@ -31,7 +31,7 @@ Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&
    services:
      mongo1:
      container_name: mongo1
-     restart: unless-stopped
+     restart: always
      image: ${IMAGE_NAME}
      command: ["bash", "-c", "chmod 400 /keyfile && exec mongod --replSet rs0 --bind_ip localhost,mongo1 --keyFile /keyfile --auth"]
      ports:
