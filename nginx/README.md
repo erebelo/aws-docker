@@ -61,5 +61,3 @@
     `$ docker pull rebelodocker/nginx:v1.25.5`
 
 3.  Perform steps **#6** and **#7** described earlier
-
----
