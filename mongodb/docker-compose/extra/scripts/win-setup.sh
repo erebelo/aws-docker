@@ -59,8 +59,9 @@ db.getSiblingDB('$DEMO_DB_NAME').createCollection('$PROFILE_HISTORY_COLLECTION')
 
 echo
 echo "Logging in with '$REGULAR_USER' user..."
-echo "Creating index for '$PROFILE_COLLECTION' and '$PROFILE_HISTORY_COLLECTION' collections from '$DEMO_DB_NAME' database..."
+echo "Creating indexes for '$PROFILE_COLLECTION' and '$PROFILE_HISTORY_COLLECTION' collections from '$DEMO_DB_NAME' database..."
 winpty docker exec -it $CONTAINER_1_NAME mongosh --eval "
 db.getSiblingDB('$DEMO_DB_NAME').auth('$REGULAR_USER', '$REGULAR_PWD');
-db.getSiblingDB('$DEMO_DB_NAME').getCollection('$PROFILE_COLLECTION').createIndex({ documentId: 1 }, { name: 'document_id_index' });
+db.getSiblingDB('$DEMO_DB_NAME').getCollection('$PROFILE_COLLECTION').createIndex({ userId: 1 }, { unique: true, name: 'user_id_index' });
+db.getSiblingDB('$DEMO_DB_NAME').getCollection('$PROFILE_HISTORY_COLLECTION').createIndex({ documentId: 1 }, { name: 'document_id_index' });
 db.getSiblingDB('$DEMO_DB_NAME').getCollection('$PROFILE_HISTORY_COLLECTION').createIndex({ 'document.userId': 1 }, { name: 'user_id_index' });"
