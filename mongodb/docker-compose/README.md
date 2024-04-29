@@ -37,7 +37,7 @@ Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&
      ports:
        - "27017:27017"
      networks:
-       - mongo_cluster
+       - erebelo_cluster
      volumes:
        - mongo1_data:/data/db
        - mongo1_configdb:/data/configdb
@@ -47,7 +47,7 @@ Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&
        - MONGO_INITDB_ROOT_PASSWORD=${ROOT_PWD}
 
    networks:
-     mongo_cluster:
+     erebelo_cluster:
        external: true
 
    volumes:
@@ -73,7 +73,7 @@ Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&
 
 7. Create a new network:
 
-   `$ docker network create mongo_cluster`
+   `$ docker network create erebelo_cluster`
 
 8. Create the new volumes:
 

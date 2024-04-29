@@ -1,8 +1,5 @@
 # Build nginx
-FROM nginx
-
-# Expose port 80
-EXPOSE 80
+FROM nginx:1.25.5
 
 # Copy custom nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf

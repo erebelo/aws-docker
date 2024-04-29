@@ -6,7 +6,7 @@
 
 1. Create a new Docker Hub repository [rebelodocker/spring-security-jwt](https://hub.docker.com/)
 
-2. Create a Dockerfile with the content:
+2. Create a **Dockerfile** with the content:
 
    #### Dockerfile:
 
@@ -36,12 +36,16 @@
 
    `$ docker push rebelodocker/spring-security-jwt:v1.0`
 
-5. Create and start container (locally):
+5. Create a new network:
+
+   `$ docker network create erebelo_cluster`
+
+6. Create and start container (locally):
 
    - Example 1 for a simple Java App (Spring Security JWT):
 
      ```
-     $ docker run -d --name ss-jwt -p 8000:8080 \
+     $ docker run -d --name ss-jwt -p 8000:8080 --network erebelo_cluster \
      -e ADMIN_PASSWORD=<ADMIN_PASSWORD> \
      -e SECRET_KEY=<SECRET_KEY> \
      --restart unless-stopped \
@@ -53,7 +57,7 @@
      NOTE: the host property should use the name of the previously defined database container (mongo1).
 
      ```
-     $ docker run -d --name springmongodb -p 8001:8080 --network mongo_cluster \
+     $ docker run -d --name springmongodb -p 8001:8080 --network erebelo_cluster \
      -e SPRING_PROFILES_ACTIVE=dev \
      -e DB_HOST=mongo1 \
      -e DB_PORT=27017 \
@@ -74,33 +78,7 @@
 
    `$ docker pull rebelodocker/spring-security-jwt:v1.0`
 
-3. Create and start container:
-
-   - Example 1 for a simple Java App (Spring Security JWT):
-
-     ```
-     $ docker run -d --name ss-jwt -p 80:8080 \
-     -e ADMIN_PASSWORD=<ADMIN_PASSWORD> \
-     -e SECRET_KEY=<SECRET_KEY> \
-     --restart unless-stopped \
-     rebelodocker/spring-security-jwt:v1.0
-     ```
-
-   - Example 2 for a Java App with database within the same network (Spring MongoDB Demo):
-
-     NOTE: the host property should use the name of the previously defined database container (mongo1), and the external port should also be changed to the desired one (80).
-
-     ```
-     $ docker run -d --name springmongodb -p 80:8080 --network mongo_cluster \
-     -e SPRING_PROFILES_ACTIVE=dev \
-     -e DB_HOST=mongo1 \
-     -e DB_PORT=27017 \
-     -e DB_NAME=<DB_NAME> \
-     -e DB_USERNAME=<DB_USERNAME> \
-     -e DB_PASSWORD=<DB_PASSWORD> \
-     --restart unless-stopped \
-     rebelodocker/spring-mongodb-demo:springmongodb
-     ```
+3. Perform steps **#5** and **#6** described earlier
 
 ---
 

@@ -34,7 +34,7 @@ Connection string: `mongodb://localhost:27017/?replicaSet=rs0`
 
 6.  Create a new network:
 
-    `$ docker network create mongo_cluster`
+    `$ docker network create erebelo_cluster`
 
 7.  Create the new volumes:
 
@@ -44,7 +44,7 @@ Connection string: `mongodb://localhost:27017/?replicaSet=rs0`
 
 8.  Create and start container:
 
-    `$ docker run -d --name mongo1 -p 27017:27017 --restart always --network mongo_cluster -v mongo1_data:/data/db -v mongo1_configdb:/data/configdb rebelodocker/spring-mongodb-demo:mongodb`
+    `$ docker run -d --name mongo1 -p 27017:27017 --restart always --network erebelo_cluster -v mongo1_data:/data/db -v mongo1_configdb:/data/configdb rebelodocker/spring-mongodb-demo:mongodb`
 
 9.  Set the executable permission for the file **win-setup.sh** (creates replica set, database users, and collections) and run it in the directory where the script and the .env are:
 
@@ -107,7 +107,7 @@ Connection string: `mongodb://localhost:27017/?replicaSet=rs0`
 
    `$ docker pull rebelodocker/spring-mongodb-demo:mongodb`
 
-4. Perform steps **#6**, **#7**, **#8**, and **#9** described earlier in this current topic
+4. Perform steps **#6**, **#7**, **#8**, and **#9** described earlier by using the github repository to get all required files
 
 5. Connect to AWS EC2 **_mongo1_** container by local **MongoDB Compass IDE**:
 

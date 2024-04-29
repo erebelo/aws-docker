@@ -7,7 +7,7 @@ services:
     ports:
       - "27017:27017"
     networks:
-      - mongo_cluster
+      - erebelo_cluster
     volumes:
       - mongo1_data:/data/db
       - mongo1_configdb:/data/configdb
@@ -24,7 +24,7 @@ services:
     ports:
       - "27018:27017"
     networks:
-      - mongo_cluster
+      - erebelo_cluster
     volumes:
       - mongo2_data:/data/db
       - mongo2_configdb:/data/configdb
@@ -41,7 +41,7 @@ services:
     ports:
       - "27019:27017"
     networks:
-      - mongo_cluster
+      - erebelo_cluster
     volumes:
       - mongo3_data:/data/db
       - mongo3_configdb:/data/configdb
@@ -51,7 +51,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=${ROOT_PWD}
 
 networks:
-  mongo_cluster:
+  erebelo_cluster:
     external: true
 
 volumes:
