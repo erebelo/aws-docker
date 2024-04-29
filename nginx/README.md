@@ -38,7 +38,7 @@
 
    ```
     $ docker run -d --name nginx -p 80:80 --network erebelo_cluster \
-    --restart always \
+    --restart unless-stopped \
     rebelodocker/nginx:v1.25.5
    ```
 
