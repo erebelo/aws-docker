@@ -42,11 +42,13 @@ Connection string: `mongodb://localhost:27017/?replicaSet=rs0`
 
     `$ docker volume create mongo1_configdb`
 
-8.  Create and start container:
+8.  Get the **Environment Variables** provided by the filename **.env** in the /scripts folder and change the values of the following fields: _ADMIN_PWD_, _ROOT_PWD_, and _REGULAR_PWD_
+
+9.  Create and start container:
 
     `$ docker run -d --name mongo1 -p 27017:27017 --restart always --network erebelo_cluster -v mongo1_data:/data/db -v mongo1_configdb:/data/configdb rebelodocker/spring-mongodb-demo:mongodb`
 
-9.  Set the executable permission for the file **win-setup.sh** (creates replica set, database users, and collections) and run it in the directory where the script and the .env are:
+10. Set the executable permission for the file **win-setup.sh** (creates replica set, database users, and collections) and run it in the directory where the script and the .env are:
 
     NOTE: Use **win-setup.sh** for Windows and **linux-setup.sh** for Linux SO.
 
@@ -56,7 +58,7 @@ Connection string: `mongodb://localhost:27017/?replicaSet=rs0`
 
     `$ ./win-setup.sh`
 
-10. Testing manually (optional):
+11. Testing manually (optional):
 
     `$ winpty docker exec -it mongo1 mongosh # remove 'winpty' prefix if running on Linux`
 
@@ -70,7 +72,7 @@ Connection string: `mongodb://localhost:27017/?replicaSet=rs0`
 
     `$ exit`
 
-11. When wanting to clean mongo docker (container, image, and volumes), set the executable permission to the **cleanup.sh** file and run it (optional):
+12. When wanting to clean mongo docker (container, image, and volumes), set the executable permission to the **cleanup.sh** file and run it (optional):
 
     `$ chmod +x cleanup.sh`
 
@@ -107,7 +109,7 @@ Connection string: `mongodb://localhost:27017/?replicaSet=rs0`
 
    `$ docker pull rebelodocker/spring-mongodb-demo:mongodb`
 
-4. Perform steps **#6**, **#7**, **#8**, and **#9** described earlier by using the github repository to get all required files
+4. Perform steps **#6**, **#7**, **#8**, **#9**, and **#10** described earlier by using the github repository to get all required files
 
 5. Connect to AWS EC2 **_mongo1_** container by local **MongoDB Compass IDE**:
 

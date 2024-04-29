@@ -24,7 +24,7 @@
 
 4. Create image set by Dockerfile:
 
-   `$ docker buildx build --platform linux/amd64 -t rebelodocker/nginx .`
+   `$ docker buildx build --platform linux/amd64 -t rebelodocker/nginx:v1.25.5 .`
 
 5. Push the image to Docker Hub repository created earlier:
 
