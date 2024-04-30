@@ -2,7 +2,7 @@
 FROM nginx:1.25.5
 
 # Install Certbot and dependencies
-RUN apt-get update && apt-get install -y certbot python3-certbot-dns-route53 cron
+RUN yum update && yum install -y certbot python3-certbot-dns-route53 cronie
 
 # Copy custom nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
@@ -16,4 +16,4 @@ RUN chmod 0644 /etc/cron.d/certbot-renew
 # EXPOSE 443
 
 # Command to start cron
-CMD ["cron", "-f"]
+CMD ["crond", "-f"]
