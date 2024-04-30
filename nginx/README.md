@@ -42,6 +42,14 @@
     rebelodocker/nginx:v1.25.5
    ```
 
+   HTTPS:
+
+   ```
+   $ docker run -d --name nginx -p 80:80 -p 443:443 --network erebelo_cluster \
+   --restart unless-stopped \
+   rebelodocker/nginx:v1.25.5
+   ```
+
 8. Testing manually (optional):
 
    `$ winpty docker exec -it <CONTAINER_NAME> /bin/bash # remove 'winpty' prefix if running on Linux`
