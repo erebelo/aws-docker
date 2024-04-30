@@ -1,8 +1,8 @@
 # Build nginx
-FROM nginx:1.25.5
+FROM amazonlinux:2
 
-# Install Certbot and dependencies
-RUN yum update && yum install -y certbot python3-certbot-dns-route53 cronie
+# Install Nginx, Certbot, and dependencies
+RUN yum update -y yum install -y nginx certbot python3-certbot-dns-route53 cronie
 
 # Copy custom nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
@@ -12,8 +12,8 @@ RUN echo "0 0 * * * certbot renew --non-interactive --dns-route53 --post-hook 'n
 RUN chmod 0644 /etc/cron.d/certbot-renew
 
 # Expose ports
-# EXPOSE 80
-# EXPOSE 443
+EXPOSE 80
+EXPOSE 443
 
 # Command to start cron
-CMD ["crond", "-f"]
+CMD ["crond", "-n"]
