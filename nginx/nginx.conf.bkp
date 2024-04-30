@@ -51,24 +51,6 @@ http {
         location = /50x.html {
         }
     }
-	
-	server {
-        listen 80;
-        listen [::]:80; # Enable IPv6 support
-        server_name erebelo.com;
-        root /usr/share/nginx/html;
-
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-
-        error_page 404 /404.html;
-        location = /404.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
-    }
 
     server {
         listen 80;
