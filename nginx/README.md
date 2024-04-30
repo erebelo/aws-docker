@@ -36,18 +36,27 @@
 
 7. Create and start container:
 
+   HTTP:
+
    ```
-    $ docker run -d --name nginx -p 80:80 --network erebelo_cluster \
+   $ docker run -d --name nginx-http -p 80:80 --network erebelo_cluster \
+   --restart unless-stopped \
+   rebelodocker/nginx:localhost_http
+   ```
+
+   ```
+    $ docker run -d --name nginx-http -p 80:80 --network erebelo_cluster \
     --restart unless-stopped \
-    rebelodocker/nginx:v1.25.5
+    rebelodocker/nginx:erebelo_http
    ```
 
    HTTPS:
 
    ```
-   $ docker run -d --name nginx -p 80:80 -p 443:443 --network erebelo_cluster \
+   $ docker run -d --name nginx-https -p 80:80 -p 443:443 --network erebelo_cluster \
    --restart unless-stopped \
-   rebelodocker/nginx:v1.25.5
+   -v /etc/letsencrypt/certs:/etc/nginx/certs \
+   rebelodocker/nginx:erebelo_https
    ```
 
 8. Testing manually (optional):
