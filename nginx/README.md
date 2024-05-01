@@ -11,24 +11,21 @@
    ```
    # Build nginx
    FROM nginx:1.25.5
-
-   # Copy custom nginx configuration file
-   COPY nginx.conf /etc/nginx/nginx.conf
    ```
 
-3. Get the **Nginx Configuration File** provided by the filename **nginx.conf** and change the values of the following fields:
+3. Create image set by Dockerfile:
+
+   `$ docker buildx build --platform linux/amd64 -t rebelodocker/nginx:v1.25.5 .`
+
+4. Push the image to Docker Hub repository created earlier:
+
+   `$ docker push rebelodocker/nginx:v1.25.5`
+
+5. Get the **Nginx Configuration File** provided by the filename **nginx-http.conf** and change the values of the following fields:
 
    - _http -> server -> listen_
    - _http -> server -> server_name_
    - _http -> server -> location -> proxy_pass_
-
-4. Create image set by Dockerfile:
-
-   `$ docker buildx build --platform linux/amd64 -t rebelodocker/nginx:v1.25.5 .`
-
-5. Push the image to Docker Hub repository created earlier:
-
-   `$ docker push rebelodocker/nginx:v1.25.5`
 
 6. Use the network created for the Apps or create a new one:
 
@@ -39,16 +36,14 @@
    HTTP:
 
    ```
-   $ docker run -d --name nginx-http -p 80:80 --network erebelo_cluster \
-   --restart unless-stopped \
-   rebelodocker/nginx:localhost_http
-   ```
-
-   ```
     $ docker run -d --name nginx-http -p 80:80 --network erebelo_cluster \
     --restart unless-stopped \
-    rebelodocker/nginx:erebelo_http
+    rebelodocker/nginx:v1.25.5
    ```
+
+   `$ docker cp nginx-http.conf nginx-http:/etc/nginx/nginx.conf`
+
+   `$ docker restart nginx-http`
 
    HTTPS:
 
@@ -56,12 +51,16 @@
    $ docker run -d --name nginx-https -p 80:80 -p 443:443 --network erebelo_cluster \
    --restart unless-stopped \
    -v /etc/letsencrypt/certs:/etc/nginx/certs \
-   rebelodocker/nginx:erebelo_https
+   rebelodocker/nginx:nginx:v1.25.5
    ```
+
+   `$ docker cp nginx-https.conf nginx-http:/etc/nginx/nginx.conf`
+
+   `$ docker restart nginx-https`
 
 8. Testing manually (optional):
 
-   `$ winpty docker exec -it <CONTAINER_NAME> /bin/bash # remove 'winpty' prefix if running on Linux`
+   `$ winpty docker exec -it <CONTAINER_NAME> bash # remove 'winpty' prefix if running on Linux`
 
    `$ /usr/sbin/nginx -v`
 
