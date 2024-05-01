@@ -1,6 +1,6 @@
 ##### `[BETTER APPROACH]`
 
-# Docker Setup
+# Java App Setup with Docker
 
 ## Locally
 
