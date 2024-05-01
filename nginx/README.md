@@ -1,8 +1,6 @@
-##### `[HTTP]`
+# Nginx HTTP Setup
 
-# Nginx - Locally & AWS EC2
-
-## Docker (Locally: Git Bash)
+## Locally
 
 1. Create a new Docker Hub repository [rebelodocker/nginx](https://hub.docker.com/)
 
@@ -15,7 +13,7 @@
    FROM nginx:1.25.5
    ```
 
-3. Create image set by Dockerfile:
+3. Create an image set by Dockerfile:
 
    `$ docker buildx build --platform linux/amd64 -t rebelodocker/nginx:v1.25.5 .`
 
@@ -53,7 +51,7 @@
 
    `$ exit`
 
-## AWS via SSH (Locally: Git Bash)
+## AWS EC2 via SSH
 
 1.  Connect to EC2 via Git Bash (enter the public ssh password):
 
@@ -67,11 +65,9 @@
 
 ---
 
-##### `[HTTPS]`
+# Nginx HTTPS Setup
 
-# Nginx - AWS EC2
-
-## Docker (Locally: Git Bash)
+## Locally
 
 1.  Connect to EC2 via Git Bash (enter the public ssh password):
 
@@ -88,7 +84,7 @@
 
     `$ sudo certbot certonly --manual --preferred-challenges=dns --email <MY_EMAIL> --server https://acme-v02.api.letsencrypt.org/directory --agree-tos -d erebelo.com -d \*.erebelo.com`
 
-    **NOTE**: If when creating the SSL/TLS Certificate Wildcard receives an error message similar to **Another instance of Certbot is already running**, it's necessary to terminate its running process.
+    **NOTE**: if an error message similar to _**Another instance of Certbot is already running**_ occurs during the creation of the SSL/TLS Certificate Wildcard, it is essential to terminate the existing Certbot process before proceeding.
 
     ```
     # Find certbot process:
@@ -117,15 +113,15 @@
     These files will be updated when the certificate renews.
     ```
 
-5.  Verify that the certificate are created:
+6.  Verify that the certificate are created:
     $ sudo certbot certificates
 
-6.  Copy the files that symbolic links point to another directory:
+7.  Copy the files that symbolic links point to another directory:
     `sudo cp -r -L /etc/letsencrypt/live/erebelo.com/fullchain.pem /etc/letsencrypt/certs/`
 
     `sudo cp -r -L /etc/letsencrypt/live/erebelo.com/privkey.pem /etc/letsencrypt/certs/`
 
-7.  Create and start container:
+8.  Create and start container:
 
     `$ docker run -d --name nginx-https -p 80:80 -p 443:443 --network erebelo_cluster \
      --restart unless-stopped \
