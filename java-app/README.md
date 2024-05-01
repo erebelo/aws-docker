@@ -134,4 +134,4 @@
 
 ---
 
-**NOTE**: The downside of not using Docker is that the AWS via SSH terminal must always be open to work.
+**NOTE**: the downside of not using Docker is that the AWS via SSH terminal must always be open to work.
