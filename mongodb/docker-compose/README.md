@@ -1,12 +1,12 @@
 ##### `[BETTER APPROACH]`
 
-# MongoDB with Replica Set and Mandatory Authentication (Docker Compose) - Locally & AWS EC2
+# MongoDB with Replica Set and Mandatory Authentication (Docker Compose)
 
 **NOTE:** this solution using Docker Compose was the only one possible to enable mandatory authentication by keyfile when connecting to database.
 
 Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&authMechanism=DEFAULT`
 
-## Docker (Locally: Git Bash)
+## Locally
 
 1. Create a new Docker Hub repository [rebelodocker/spring-mongodb-demo](https://hub.docker.com/)
 
@@ -57,7 +57,7 @@ Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&
        external: true
    ```
 
-4. Create image set by Dockerfile:
+4. Create an image set by Dockerfile:
 
    `$ docker buildx build --platform linux/amd64 -t rebelodocker/spring-mongodb-demo:mongodb-auth .`
 
@@ -117,7 +117,7 @@ Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&
 
     `$ ./cleanup.sh`
 
-## AWS via SSH (Locally: Git Bash)
+## AWS EC2 via SSH
 
 1.  Connect to EC2 via Git Bash (enter the public ssh password):
 
