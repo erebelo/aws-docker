@@ -1,6 +1,6 @@
 # AWS Setup
 
-## SSH Keys (Locally: Git Bash)
+## SSH Keys (Locally)
 
 1. Generate SSH key:
 
@@ -18,11 +18,11 @@
 
 [AWS Console](https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1)
 
-**NOTE:** The video does not cover the steps #2 (adding port 80) and #5, but it needs to be done in order to work properly.
+**NOTE:** The video does not cover steps #2 (adding port 80) and #5.
 
 1. Create VPC
 
-2. Create Security Group: _EC2 -> Network & Security -> Security Group_ (allow access via SSH and ports 80 and 8080)
+2. Create Security Group: _EC2 -> Network & Security -> Security Group_ (allow access via SSH, TCP, HTTP, and HTTPS)
 
 3. Add the SSH public key: _EC2 -> Key Pairs -> Actions -> Import key pair_
 
@@ -45,7 +45,7 @@
 
 7. Set the Route traffic to Hostinger DNS / Nameservers
 
-## AWS via SSH (Locally: Git Bash)
+## AWS EC2 via SSH
 
 1. Connect to EC2 via Git Bash (enter the ssh password):
 
@@ -79,7 +79,7 @@
 
 4. Docker Compose setup (if applicable):
 
-   - Install docker compose:
+   - Install Docker Compose:
 
      `$ sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
 
@@ -93,6 +93,7 @@
 
 ---
 
-Now, if applicable, perform one of the approaches from **mongodb** described in README.md to deploy a **MongoDB** instance.
-
-Then perform one of the approaches from **java-app** described in README.md to deploy a **Java App** instance.
+Now, if applicable, perform one of the approaches from:
+- **mongodb** to deploy a **MongoDB** instance
+- **java-app** to deploy a **Java App** instance
+- **nginx** to set up **Nginx** as a reverse proxy with a valid SSL/TLS (HTTPS) certificate
