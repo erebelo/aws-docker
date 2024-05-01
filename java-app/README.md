@@ -1,8 +1,8 @@
 ##### `[BETTER APPROACH]`
 
-# Docker Setup - Locally & AWS EC2
+# Docker Setup
 
-## Docker (Locally: Git Bash)
+## Locally
 
 1. Create a new Docker Hub repository [rebelodocker/spring-security-jwt](https://hub.docker.com/)
 
@@ -68,7 +68,7 @@
      rebelodocker/spring-mongodb-demo:springmongodb
      ```
 
-## AWS via SSH (Locally: Git Bash)
+## AWS EC2 via SSH
 
 1. Connect to EC2 via Git Bash (enter the ssh password):
 
@@ -84,9 +84,9 @@
 
 ##### `[SECOND APPROACH]`
 
-# Setup for Running Java App without Docker - AWS EC2
+# Java App Setup without Docker
 
-## AWS via SSH (Locally: Git Bash)
+## AWS EC2 via SSH
 
 1.  Connect to EC2 via Git Bash (enter the ssh password):
 
