@@ -2,7 +2,7 @@
 
 # MongoDB with Replica Set and Mandatory Authentication (Docker Compose)
 
-**NOTE:** this solution using Docker Compose was the only one possible to enable mandatory authentication by keyfile when connecting to database.
+**NOTE:** this solution using Docker Compose was the only one possible to enable mandatory authentication by keyfile when connecting to the database.
 
 Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&authMechanism=DEFAULT`
 
@@ -16,7 +16,7 @@ Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&
    127.0.0.1   mongo1
    ```
 
-3. As required, to push a docker image to Docker Hub, the docker image name needs to keep the Docker Hub pattern for the created repository. Therefore, for this it's necessary to create a **Dockerfile** and a **Docker Compose** with the contents below:
+3. As required, to push a docker image to Docker Hub, the docker image name needs to keep the Docker Hub pattern for the created repository. Therefore, it's necessary to create a **Dockerfile** and a **Docker Compose** with the contents below:
 
    #### Dockerfile:
 
@@ -131,7 +131,7 @@ Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&
 
       `$ i`
 
-    - Add **_mongo1_** to the end of the mapping for host **_127.0.1.1_**. The file should look like below:
+    - Add **_mongo1_** to the end of the mapping for host **_127.0.1.1_**. The file should look like:
       ```
       127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 mongo1
       ::1         localhost6 localhost6.localdomain6
@@ -146,7 +146,7 @@ Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&
 
     `$ docker pull rebelodocker/spring-mongodb-demo:mongodb-auth`
 
-4.  Perform steps **#6**, **#7**, **#8**, **#9**, **#10**, and **#11** described earlier by using the github repository to get all required files
+4.  Perform steps **#6**, **#7**, **#8**, **#9**, **#10**, and **#11** described earlier by using the GitHub repository to get all required files
 
 5.  Connect to AWS EC2 **_mongo1_** container by local **MongoDB Compass IDE**:
 
