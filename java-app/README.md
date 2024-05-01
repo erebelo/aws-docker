@@ -28,7 +28,7 @@
 
 3. Create the docker image by running the command using Git Bash terminal where the Dockerfile and the **target/<APP>.jar** is located:
 
-   NOTE: one possible solution is to copy the **<APP>.jar** to where the Dockerfile is located.
+   **NOTE**: one possible solution is to copy the **<APP>.jar** to where the Dockerfile is located.
 
    `$ docker buildx build --platform linux/amd64 -t rebelodocker/spring-security-jwt:v1.0 .`
 
@@ -52,9 +52,9 @@
      rebelodocker/spring-security-jwt:v1.0
      ```
 
-   - Example 2 for a Java App with database within the same network (Spring MongoDB Demo):
+   - Example 2 for a Java App with a database within the same network (Spring MongoDB Demo):
 
-     NOTE: the host property should use the name of the previously defined database container (mongo1).
+     **NOTE**: the host property should use the name of the previously defined database container (mongo1).
 
      ```
      $ docker run -d --name springmongodb -p 8001:8080 --network erebelo_cluster \
