@@ -118,7 +118,7 @@
 
 4.  Run the spring boot application:
 
-    **NOTE**: Before performing this step **#4**, perform the steps under **IntelliJ Terminal** topic below and then continue here.
+    **NOTE**: before performing this step **#4**, perform the steps under **IntelliJ Terminal** topic below and then continue here.
 
     `$ java -jar <APP>.jar`
 
