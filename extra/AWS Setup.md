@@ -18,7 +18,7 @@
 
 [AWS Console](https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1)
 
-**NOTE:** The video does not cover steps #2 (adding port 80) and #5.
+**NOTE:** be careful with step **#5** as it may incur additional charges from AWS.
 
 1. Create VPC
 
