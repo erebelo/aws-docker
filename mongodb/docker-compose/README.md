@@ -89,7 +89,7 @@ Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&
 
 11. Set the executable permission for the file **win-setup.sh** (creates replica set, database users, and collections) and run it in the directory where the script and the .env are:
 
-    NOTE: Use **win-setup.sh** for Windows and **linux-setup.sh** for Linux SO.
+    **NOTE**: use **win-setup.sh** for Windows and **linux-setup.sh** for Linux SO.
 
     `$ cd ../scripts`
 
