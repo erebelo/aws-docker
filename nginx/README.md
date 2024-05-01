@@ -1,3 +1,5 @@
+##### `[HTTP]`
+
 # Nginx - Locally & AWS EC2
 
 ## Docker (Locally: Git Bash)
@@ -33,8 +35,6 @@
 
 7. Create and start container:
 
-   HTTP:
-
    ```
     $ docker run -d --name nginx-http -p 80:80 --network erebelo_cluster \
     --restart unless-stopped \
@@ -44,19 +44,6 @@
    `$ docker cp nginx-http.conf nginx-http:/etc/nginx/nginx.conf`
 
    `$ docker restart nginx-http`
-
-   HTTPS:
-
-   ```
-   $ docker run -d --name nginx-https -p 80:80 -p 443:443 --network erebelo_cluster \
-   --restart unless-stopped \
-   -v /etc/letsencrypt/certs:/etc/nginx/certs \
-   rebelodocker/nginx:nginx:v1.25.5
-   ```
-
-   `$ docker cp nginx-https.conf nginx-http:/etc/nginx/nginx.conf`
-
-   `$ docker restart nginx-https`
 
 8. Testing manually (optional):
 
@@ -77,3 +64,74 @@
     `$ docker pull rebelodocker/nginx:v1.25.5`
 
 3.  Perform steps **#6** and **#7** described earlier
+
+---
+
+##### `[HTTPS]`
+
+# Nginx - AWS EC2
+
+## Docker (Locally: Git Bash)
+
+1.  Connect to EC2 via Git Bash (enter the public ssh password):
+
+    `$ ssh ec2-user@<EC2_INSTANCE_IPV4_ADDRESS>`
+
+2.  Pull docker image:
+
+    `$ docker pull rebelodocker/nginx:v1.25.5`
+
+3.  Install Certbot:
+    $ sudo yum install certbot
+
+4.  Generate Wildcard SSL/TLS Certificate through **Let's Encrypt**:
+
+    `$ sudo certbot certonly --manual --preferred-challenges=dns --email <MY_EMAIL> --server https://acme-v02.api.letsencrypt.org/directory --agree-tos -d erebelo.com -d \*.erebelo.com`
+
+    **NOTE**: If when creating the SSL/TLS Certificate Wildcard receives an error message similar to **Another instance of Certbot is already running**, it's necessary to terminate its running process.
+
+    ```
+    # Find certbot process:
+    $ ps -ef | grep certb
+
+    # Kill it by the process ID (it's the first number after the user):
+    $ sudo kill 5555
+    ```
+
+    ```
+    Please deploy a DNS TXT record under the name:
+    _acme-challenge.erebelo.com.
+    with the following value: <CHALLENGE_VALUE>
+
+    In Route 53 -> Hosted zones -> erebelo.com -> Create record:
+    Record name: _acme-challenge.erebelo.com
+    Record type: TXT
+    Value: <CHALLENGE_VALUE>
+
+    [IMPORTANT] Wait until the new record is INSYNC to press Enter in the terminal
+
+    Successfully received certificate.
+    Certificate is saved at: /etc/letsencrypt/live/erebelo.com/fullchain.pem
+    Key is saved at:         /etc/letsencrypt/live/erebelo.com/privkey.pem
+    This certificate expires on yyyy-MM-dd.
+    These files will be updated when the certificate renews.
+    ```
+
+5.  Verify that the certificate are created:
+    $ sudo certbot certificates
+
+6.  Copy the files that symbolic links point to another directory:
+    `sudo cp -r -L /etc/letsencrypt/live/erebelo.com/fullchain.pem /etc/letsencrypt/certs/`
+
+    `sudo cp -r -L /etc/letsencrypt/live/erebelo.com/privkey.pem /etc/letsencrypt/certs/`
+
+7.  Create and start container:
+
+    `$ docker run -d --name nginx-https -p 80:80 -p 443:443 --network erebelo_cluster \
+     --restart unless-stopped \
+     -v /etc/letsencrypt/certs:/etc/nginx/certs \
+     rebelodocker/nginx:v1.25.5`
+
+    `$ docker cp nginx-https.conf nginx-https:/etc/nginx/nginx.conf`
+
+    `$ docker restart nginx-https`
