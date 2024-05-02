@@ -93,7 +93,10 @@
 
 ---
 
-Now, if applicable, perform one of the approaches from:
-- **mongodb** to deploy a **MongoDB** instance
-- **java-app** to deploy a **Java App** instance
-- **nginx** to set up **Nginx** as a reverse proxy with a valid SSL/TLS (HTTPS) certificate
+Now, if applicable, perform one of the approaches from each of the following topics:
+
+- [java-app](https://github.com/erebelo/aws-docker/tree/main/java-app)
+
+- [mongodb](https://github.com/erebelo/aws-docker/tree/main/mongodb)
+
+- [nginx](https://github.com/erebelo/aws-docker/tree/main/nginx)

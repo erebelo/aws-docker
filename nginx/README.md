@@ -153,7 +153,7 @@
 
 2.  Generate or renew certificate files:
 
-    **NOTE**: if an error message similar to _**Another instance of Certbot is already running**_ occurs during the creation of the SSL/TLS Certificate Wildcard, it is essential to terminate the existing Certbot process before proceeding. In this case, run the commands below:
+    **NOTE**: if an error message similar to _**Another instance of Certbot is already running**_ occurs during the creation of the Wildcard SSL/TLS Certificate, it is essential to terminate the existing Certbot process before proceeding. In this case, run the commands below:
 
     ```
     # Find certbot process:
