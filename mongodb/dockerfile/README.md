@@ -46,7 +46,13 @@ Connection string: `mongodb://localhost:27017/?replicaSet=rs0`
 
 9.  Create and start container:
 
-    `$ docker run -d --name mongo1 -p 27017:27017 --restart always --network erebelo_cluster -v mongo1_data:/data/db -v mongo1_configdb:/data/configdb rebelodocker/spring-mongodb-demo:mongodb`
+    ```
+    $ docker run -d --name mongo1 -p 27017:27017 --network erebelo_cluster \
+    -v mongo1_data:/data/db \
+    -v mongo1_configdb:/data/configdb \
+    --restart always \
+    rebelodocker/spring-mongodb-demo:mongodb
+    ```
 
 10. Set the executable permission for the file **win-setup.sh** (creates replica set, database users, and collections) and run it in the directory where the script and the .env are:
 

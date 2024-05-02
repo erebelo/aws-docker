@@ -8,4 +8,4 @@ Additionally, it provides how to set up **Nginx** as a reverse proxy for multipl
 
 - [mongodb](https://github.com/erebelo/aws-docker/tree/main/mongodb): guide that describes two approaches on how to deploy a **MongoDB** using Docker
 
-- [nginx](https://github.com/erebelo/aws-docker/tree/main/nginx): guide that describes how to set up **Nginx** as a reverse proxy with a valid SSL/TLS (HTTPS) certificate.
+- [nginx](https://github.com/erebelo/aws-docker/tree/main/nginx): guide that describes how to set up **Nginx** as a reverse proxy for HTTP and HTTPS protocols, including the setup of a valid SSL/TLS (HTTPS) certificate for secure communication
