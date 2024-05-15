@@ -97,6 +97,8 @@ Now, if applicable, perform one of the approaches from each of the following top
 
 - [java-app](https://github.com/erebelo/aws-docker/tree/main/java-app)
 
+- [ui-app](https://github.com/erebelo/aws-docker/tree/main/ui-app)
+
 - [mongodb](https://github.com/erebelo/aws-docker/tree/main/mongodb)
 
 - [nginx](https://github.com/erebelo/aws-docker/tree/main/nginx)

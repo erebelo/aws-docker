@@ -32,7 +32,7 @@ Connection string: `mongodb://localhost:27017/?replicaSet=rs0`
 
     `$ docker push rebelodocker/spring-mongodb-demo:mongodb`
 
-6.  Create a new network:
+6.  Use a network already created or create a new one:
 
     `$ docker network create erebelo_cluster`
 

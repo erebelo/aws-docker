@@ -71,7 +71,7 @@ Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&
 
    `$ chmod 400 keyfile # Igonore if the permission is already set in docker-compose.yml by the command field`
 
-7. Create a new network:
+7. Use a network already created or create a new one:
 
    `$ docker network create erebelo_cluster`
 

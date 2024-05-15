@@ -36,7 +36,7 @@
 
    `$ docker push rebelodocker/spring-security-jwt:v1.0`
 
-5. Create a new network:
+5. Use a network already created or create a new one:
 
    `$ docker network create erebelo_cluster`
 
