@@ -110,7 +110,7 @@
 
 4.  Create and start container:
 
-    **NOTE**: before performing this step **#4**, perform the steps under **Generate Wildcard SSL/TLS Certificate through Let's Encrypt** topic below. If the certificate generation was used for renewal it, the **nginx-https** container must be stopped and removed before continuing here.
+    **NOTE**: before performing this step **#4**, follow the steps under **Generate Wildcard SSL/TLS Certificate through Let's Encrypt** topic below. If the certificate generation was used for renewal, the **nginx-https** container must be stopped and removed.
 
     ```
     $ docker run -d --name nginx-https -p 80:80 -p 443:443 --network erebelo_cluster \
