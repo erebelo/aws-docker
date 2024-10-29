@@ -110,7 +110,7 @@
 
 4.  Create and start container:
 
-    **NOTE**: before performing this step **#4**, perform the steps under **Generate Wildcard SSL/TLS Certificate through Let's Encrypt** topic below and then continue here.
+    **NOTE**: before performing this step **#4**, perform the steps under **Generate Wildcard SSL/TLS Certificate through Let's Encrypt** topic below. If the certificate generation was used for renewal it, the **nginx-https** container must be stopped and removed before continuing here.
 
     ```
     $ docker run -d --name nginx-https -p 80:80 -p 443:443 --network erebelo_cluster \
@@ -166,6 +166,8 @@
     `$ sudo certbot certonly --manual --preferred-challenges=dns --email <EMAIL> --server https://acme-v02.api.letsencrypt.org/directory --agree-tos -d erebelo.com -d *.erebelo.com`
 
     Follow the instructions provided to create a TXT file in _Route 53 -> Hosted zones -> erebelo.com -> Create record_:
+
+    **NOTE**: create the record name only with **\_acme-challenge** as the domain name will be automatically added to it.
 
     ```
     Please deploy a DNS TXT record under the name:
