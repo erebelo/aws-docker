@@ -2,7 +2,7 @@
 
 # MongoDB with Replica Set and Mandatory Authentication (Docker Compose)
 
-**NOTE:** this solution using Docker Compose was the only one possible to enable mandatory authentication by keyfile when connecting to the database.
+**NOTE**: this solution using Docker Compose was the only one possible to enable mandatory authentication by keyfile when connecting to the database.
 
 Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&authMechanism=DEFAULT`
 

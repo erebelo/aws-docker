@@ -1,6 +1,6 @@
 # MongoDB with Simple Replica Set and No Mandatory Authentication (Dockerfile)
 
-**NOTE:** this solution using Dockerfile does not enable mandatory authentication when connecting to database, as it's not possible to set up the keyfile without Docker Compose.
+**NOTE**: this solution using Dockerfile does not enable mandatory authentication when connecting to database, as it's not possible to set up the keyfile without Docker Compose.
 
 Connection string: `mongodb://localhost:27017/?replicaSet=rs0`
 
