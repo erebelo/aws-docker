@@ -179,7 +179,7 @@
     Value: <CHALLENGE_VALUE>
     ```
 
-    `[IMPORTANT]` Wait until the new record is **INSYNC** to press Enter in the terminal.
+    **IMPORTANT**: Wait until the new record is `INSYNC` to press Enter in the terminal.
 
     ```
     Successfully received certificate.
@@ -199,4 +199,4 @@
 
     `sudo cp -r -L /etc/letsencrypt/live/erebelo.com/privkey.pem /etc/letsencrypt/certs/`
 
-**IMPORTANT:** If this process is being used for **certificate renewal**, you must run the container creation again at the end of this process, as described in [step #4 under Nginx HTTPS Setup -> AWS EC2 via SSH](#aws-ec2-via-ssh-1). This ensures the renewed certificate is correctly mounted and used.
+**IMPORTANT**: If this process is being used for **certificate renewal**, you must run the container creation again at the end of this process, as described in [step #4 under Nginx HTTPS Setup -> AWS EC2 via SSH](#aws-ec2-via-ssh-1). This ensures the renewed certificate is correctly mounted and used.
