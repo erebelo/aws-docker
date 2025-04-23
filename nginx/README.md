@@ -199,4 +199,4 @@
 
     `sudo cp -r -L /etc/letsencrypt/live/erebelo.com/privkey.pem /etc/letsencrypt/certs/`
 
-**IMPORTANT**: If this process is being used for **certificate renewal**, you must run the container creation again at the end of this process, as described in [step #4 under Nginx HTTPS Setup -> AWS EC2 via SSH](#aws-ec2-via-ssh-1). This ensures the renewed certificate is correctly mounted and used.
+**IMPORTANT**: If this process is being used for **certificate renewal**, after completing all the steps here, you must repeat steps #4, #5, #6, and #7 as described in [Nginx HTTPS Setup → AWS EC2 via SSH](#aws-ec2-via-ssh-1).
