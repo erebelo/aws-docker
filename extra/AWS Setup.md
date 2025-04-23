@@ -43,6 +43,8 @@
    - _Route 53 -> Hosted zones -> Create hosted zone_
    - _Route 53 -> Hosted zones -> Create record_
 
+   **IMPORTANT**: whenever the EC2 instance is stopped, started, or rebooted, its Public IPv4 address may change. Be sure to update the corresponding values in your Route 53 DNS records to reflect the new IP address.
+
 7. Set the Route traffic to Hostinger DNS / Nameservers
 
 ## AWS EC2 via SSH
