@@ -16,7 +16,7 @@
 
 ## AWS Console
 
-[AWS Console](https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1)
+[AWS Console](https://console.aws.amazon.com/console/home)
 
 1. Create VPC
 
