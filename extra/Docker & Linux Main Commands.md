@@ -88,7 +88,7 @@ $ docker network rm <NETWORK_NAME>
 
 ```
 # Track container logs
-$ docker logs -f
+$ docker logs -f <CONTAINER_NAME>
 ```
 
 ## Linux
@@ -135,7 +135,7 @@ $ free -h
 
 ```
 #!/bin/bash
-export `<ENV_VARIABLE>**=<ENV_VARIABLE_VALUE>;
+export <ENV_VARIABLE>=<ENV_VARIABLE_VALUE>;
 export <ENV_VARIABLE_2>=<ENV_VARIABLE_VALUE_2>;
 ```
 
