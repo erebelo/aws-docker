@@ -4,7 +4,7 @@ This article provides a detailed step-by-step guide on how to deploy a **MongoDB
 
 Additionally, it provides how to set up **Nginx** as a reverse proxy for multiple Apps running on a single EC2 instance and responding to the same HTTP (80) and HTTPS (443) ports.
 
-Start with the [AWS Setup](https://github.com/erebelo/aws-docker/tree/main/setup) section to configure the necessary resources on the AWS account, such as a VPC, Security Group, EC2 instance, and more. Completing these steps ensures the environment is properly prepared for the deployment instructions outlined below:
+Start with the [AWS Setup](https://github.com/erebelo/aws-docker/blob/main/setup/AWS%20Setup.md) section to configure the necessary resources on the AWS account, such as a VPC, Security Group, EC2 instance, and more. Completing these steps ensures the environment is properly prepared for the deployment instructions outlined below:
 
 - [mongodb](https://github.com/erebelo/aws-docker/tree/main/mongodb): guide that describes two approaches on how to deploy a **MongoDB** using Docker.
 
