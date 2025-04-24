@@ -71,6 +71,9 @@ Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&
 
    `$ chmod 400 keyfile # Igonore if the permission is already set in docker-compose.yml by the command field`
 
+   The `keyfile` is required when authentication is enabled and the instance is running as a replica set.
+   It acts as a shared secret that enables internal authentication between replica set members.
+
    **NOTE**: the `keyfile` is used when starting the container by the Docker image built, and it must be in the same directory where `docker-compose up` is run.
 
 7. Use a network already created or create a new one:
