@@ -18,8 +18,6 @@
 
 [AWS Console](https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1)
 
-**NOTE**: be careful with step **#5** as it may incur additional charges from AWS.
-
 1. Create VPC
 
 2. Create Security Group: _EC2 -> Network & Security -> Security Group_ (allow access via SSH, TCP, HTTP, and HTTPS)
@@ -28,7 +26,9 @@
 
 4. Create EC2 instance: _EC2 -> Instances -> Launch instances_
 
-5. `[charged]` Create Elastic IPs (used to keep the same EC2 IP when instance is stopped and started):
+5. `[potential cost]` Create Elastic IPs (used to keep the same EC2 IP when instance is stopped and started):
+
+   **IMPORTANT**: be careful with this step as it may incur additional charges from AWS.
 
    - _EC2 -> Network & Security -> Elastic IPs -> Allocate Elastic IP address_
    - _EC2 -> Network & Security -> Elastic IPs -> Actions -> Associate Elastic IP address -> Instance_
@@ -97,10 +97,10 @@
 
 Now, if applicable, perform one of the approaches from each of the following topics:
 
+- [mongodb](https://github.com/erebelo/aws-docker/tree/main/mongodb)
+
 - [java-app](https://github.com/erebelo/aws-docker/tree/main/java-app)
 
 - [ui-app](https://github.com/erebelo/aws-docker/tree/main/ui-app)
-
-- [mongodb](https://github.com/erebelo/aws-docker/tree/main/mongodb)
 
 - [nginx](https://github.com/erebelo/aws-docker/tree/main/nginx)
