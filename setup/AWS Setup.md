@@ -16,7 +16,7 @@
 
 ## AWS Console
 
-[AWS Console](https://console.aws.amazon.com/console/home)
+<a href="https://console.aws.amazon.com/console/home" target="_blank">AWS Console</a>
 
 1. Create VPC
 
