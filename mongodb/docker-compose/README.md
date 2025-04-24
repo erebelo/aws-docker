@@ -71,6 +71,8 @@ Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&
 
    `$ chmod 400 keyfile # Igonore if the permission is already set in docker-compose.yml by the command field`
 
+   **NOTE**: the `keyfile` is used when starting the container by the Docker image built, and it must be in the same directory where `docker-compose up` is run.
+
 7. Use a network already created or create a new one:
 
    `$ docker network create erebelo_cluster`
@@ -150,9 +152,11 @@ Connection string: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&
 
 5.  Connect to AWS EC2 **_mongo1_** container by local **MongoDB Compass IDE**:
 
-    - Use the following connection string:
+    - Use the following connection strings:
 
-      `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&authMechanism=DEFAULT`
+      - Admin database: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&authMechanism=DEFAULT`
+
+      - Other databases: `mongodb://<USER>:<PASSWORD>@localhost:27017/?replicaSet=rs0&authMechanism=DEFAULT&authSource=<DB_NAME>`
 
     - In **Authentication** tab, leave the **Username/Password** option set and fill the fields as follow:
       ```
